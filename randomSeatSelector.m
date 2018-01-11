@@ -63,7 +63,7 @@ for i = 1:interval
         xlabel('Podium');
         title('Rear of Auditorium');
     else
-        title('PODIUM');
+        title('Podium');
         xlabel('Rear of Auditorium');
     end
     %title(['Random seat: ' rowlabs{randRow} ', ' num2str(randCol)], 'FontSize',24,'FontName', 'Arial');

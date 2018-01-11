@@ -1,4 +1,6 @@
 rotateMap = false;
+% rotateMap "false" will produce a map from the student perspective
+% rotateMap "true" will produce a map from the instructor perspective
 
 % getting a different random number seed each time:
 if exist('RandomSeedInfo.mat','file')

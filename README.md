@@ -24,4 +24,14 @@ This repository contains:
 7.  Press the "Run" button after the script opens, and change directories if prompted to by the dialogue window
 8.  That should open a figure window
 9.  Press the cat button in its lower left hand corner
-10.  Repeat step 9 as needed to choose a new seat
+10.  Repeat step 9 as needed to choose a new seat (you do NOT need to repeat step 7)
+
+### Note about the visualization
+Line #1 in "choose_a_seat.m" determines whether the displayed seat map is visualized from the instructor perspective (podium at bottom) or from the student/audience perspective (podium at top).  The seat map is rotated 180 degrees in each of these relative to the other. To make the view from the audience perspective, use:
+
+`rotateMap = false;`
+
+To make the view from the instructor perspective, use:
+
+`rotateMap = true;`
+
