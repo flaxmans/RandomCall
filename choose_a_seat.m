@@ -1,3 +1,6 @@
+rotateMap = false;
+
+% getting a different random number seed each time:
 if exist('RandomSeedInfo.mat','file')
     load('RandomSeedInfo.mat');
     myseed = myseed + 1;
@@ -14,6 +17,8 @@ save('RandomSeedInfo.mat', 'myseed', 'interval');
 %disp(myseed)
 %disp(interval)
 
+% following code checks to see if it is Halloween and changes the image
+% accordingly
 dum = clock;
 if dum(2) == 10 && dum(3) == 31
     bot = 10;
@@ -31,12 +36,16 @@ else
     myimg = imread('cat.jpg');
 end
 
-rng(myseed);
-seatMap = importdata('SeatMap.csv');
-seatMap = rotateMatrix(seatMap,180);
+
+rng(myseed); % seeds the RNG
+seatMap = importdata('SeatMap.csv');  %get the seatmap into memory
+if rotateMap
+    seatMap = rotateMatrix(seatMap,180);
+end
 h = gcf;
 figure(h);
 
-
-
-btn3 = uicontrol('Style', 'pushbutton', 'CData', myimg, 'Position', [left bot w t],'Callback', 'randomSeatSelector(1,1,seatMap,interval)');
+% the following line creates the user input control button
+% note that the command executed on the button is provided as a string (the
+% final argument to this uicontrol function)
+btn3 = uicontrol('Style', 'pushbutton', 'CData', myimg, 'Position', [left bot w t],'Callback', 'randomSeatSelector(1,1,seatMap,interval,rotateMap)');

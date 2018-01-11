@@ -1,4 +1,4 @@
-function randomSeatSelector(r,c,usableSeat,interval)
+function randomSeatSelector(r,c,usableSeat,interval,rotateMap)
 
 %rowlabs={'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','AA','BB','CC','DD','EE','FF','GG','HH','II','JJ','KK','LL','MM','NN','OO','PP','QQ','RR','SS','TT','UU','VV','WW','XX','YY','ZZ'};
 
@@ -31,7 +31,11 @@ end
 rowlabs = cell(1,r);
 
 for i = 1:r
-    rowlabs{i} = num2str(r+1 - i);
+    if rotateMap
+        rowlabs{i} = num2str(r+1 - i);
+    else
+        rowlabs{i} = num2str(i);
+    end
 end
 
 
@@ -55,7 +59,13 @@ for i = 1:interval
 %     set(gca, 'GridAlpha', 1);
     set(gca, 'Box', 'off', 'XTick', []);
     ylabel('Seat Row');
-    xlabel('PODIUM');
+    if rotateMap
+        xlabel('Podium');
+        title('Rear of Auditorium');
+    else
+        title('PODIUM');
+        xlabel('Rear of Auditorium');
+    end
     %title(['Random seat: ' rowlabs{randRow} ', ' num2str(randCol)], 'FontSize',24,'FontName', 'Arial');
     drawnow;
     pause(0.025)
