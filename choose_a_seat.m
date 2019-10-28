@@ -22,7 +22,7 @@ save('RandomSeedInfo.mat', 'myseed', 'interval');
 % following code checks to see if it is Halloween and changes the image
 % accordingly
 dum = clock;
-if dum(2) == 10 && dum(3) == 31
+if dum(2) == 10 && dum(3) > 27 && dum(3) <= 31
     bot = 10;
     left = 10;
     incr = 60;
